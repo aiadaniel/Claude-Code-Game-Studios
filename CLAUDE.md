@@ -5,13 +5,13 @@ Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Technology Stack
 
-- **Engine**: [CHOOSE: Godot 4 / Unity / Unreal Engine 5]
-- **Language**: [CHOOSE: GDScript / C# / C++ / Blueprint]
+- **Engine**: [CHOOSE: Godot 4 / Unity / Unreal Engine 5  / Cocos Creator]
+- **Language**: [CHOOSE: GDScript / C# / C++ / Blueprint / TypeScript]
 - **Version Control**: Git with trunk-based development
 - **Build System**: [SPECIFY after choosing engine]
 - **Asset Pipeline**: [SPECIFY after choosing engine]
 
-> **Note**: Engine-specialist agents exist for Godot, Unity, and Unreal with
+> **Note**: Engine-specialist agents exist for Godot, Unity, Cocos Creator, and Unreal with
 > dedicated sub-specialists. Use the set matching your engine.
 
 ## Project Structure
@@ -20,7 +20,10 @@ Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Engine Version Reference
 
-@docs/engine-reference/godot/VERSION.md
+@docs/engine-reference/[engine]/VERSION.md
+
+> **Note**: Replace `[engine]` with your chosen engine directory (`godot`, `unity`, `unreal`, or `cocos`).
+> This is set automatically when you run `/setup-engine`.
 
 ## Technical Preferences
 

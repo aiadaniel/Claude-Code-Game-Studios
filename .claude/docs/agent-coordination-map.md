@@ -48,6 +48,11 @@
       godot-csharp-specialist      -- C#: .NET patterns, [Signal] delegates, async, type-safe node access
       godot-shader-specialist      -- Shaders: Godot shading language, visual shaders, VFX
       godot-gdextension-specialist -- Native: C++/Rust bindings, GDExtension, build systems
+   
+    cocos-specialist   -- Cocos Creator lead: Component architecture, asset bundles, TypeScript
+      cocos-typescript-specialist  -- TypeScript: decorators, lifecycle, patterns, module organization
+      cocos-shader-specialist      -- Shaders: Cocos Effect (.effect), materials, particles, post-process
+      cocos-ui-specialist          -- UI: Widgets, multi-resolution, screen management, UI animation
 ```
 
 ### Legend

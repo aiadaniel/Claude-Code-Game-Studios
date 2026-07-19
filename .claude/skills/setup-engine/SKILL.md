@@ -37,7 +37,7 @@ If no engine is specified, run an interactive engine selection process:
 
 **Question 1 — Prior experience** (ask this first, always, via `AskUserQuestion`):
 - Prompt: "Have you worked in any of these engines before?"
-- Options: `Godot` / `Unity` / `Unreal Engine 5` / `Multiple — I'll explain` / `None of them`
+- Options: `Godot` / `Unity` / `Unreal Engine 5` / `Cocos Creator` / `Multiple — I'll explain` / `None of them`
 - If they pick a specific engine → recommend that engine. Prior experience outweighs all other factors. Confirm with them and skip the matrix.
 - If "None" or "Multiple" → continue to the questions below.
 
@@ -83,6 +83,12 @@ Do NOT use a simple scoring matrix that eliminates engines. Instead, reason thro
 - Licensing reality: 5% royalty only applies AFTER $1M gross revenue per title. For a first game or any game that doesn't reach $1M, it costs nothing. This threshold is high enough that most indie developers will never pay it.
 - Best fit: AAA-quality 3D; large open-world games; photorealistic visuals; developers with C++ experience or willing to use Blueprint; games targeting high-end PC/console where visual fidelity is a core selling point
 
+**Cocos Creator**
+- Genuine strengths: Best-in-class 2D mobile/web game development; lightweight editor with fast iteration; TypeScript is approachable and widely known; excellent Web (WebAssembly) and mobile (iOS/Android) export; strong mini-game platform support (WeChat, TikTok, etc.); free and open source (MIT); small project sizes and fast build times; built-in UI system with multi-resolution adaptation
+- Real limitations: 3D capabilities are newer and less mature than Unity/Unreal; smaller Western community and English-language resources; fewer Asset Store assets; not suitable for AAA 3D or large open-world games; console support is limited
+- Licensing reality: Open source under MIT license. Truly free with no revenue thresholds. Some advanced features may require Cocos Premium.
+- Best fit: 2D mobile games; HTML5/Web games; mini-games (WeChat, TikTok, etc.); casual and hyper-casual games; developers with TypeScript/JavaScript background; teams targeting Asian markets; rapid prototyping for mobile/web
+
 **Genre-specific guidance** (factor this into the recommendation):
 - 2D any style → Godot strongly preferred
 - 3D stylized / atmospheric / contained world → Godot viable, Unity solid alternative
@@ -94,6 +100,9 @@ Do NOT use a simple scoring matrix that eliminates engines. Instead, reason thro
 - Action RPG / Soulslike → Unity or Unreal for 3D; community support and assets matter here
 - Platformer 2D → Godot
 - Strategy / top-down / RTS → Godot or Unity depending on 2D vs 3D
+- Casual / hyper-casual mobile → Cocos Creator or Unity; Cocos excels at lightweight mobile/web games
+- Mini-game (WeChat, TikTok, etc.) → Cocos Creator; native mini-game platform support
+- HTML5 / Web game → Cocos Creator or Godot; both have excellent web export
 
 **Recommendation format:**
 1. Show a comparison table with the user's specific factors as rows
@@ -168,6 +177,13 @@ Update the Technology Stack section, replacing the `[CHOOSE]` placeholders with 
 - **Asset Pipeline**: Unreal Content Pipeline
 ```
 
+**For Cocos Creator:**
+```markdown
+- **Engine**: Cocos Creator [version]
+- **Language**: TypeScript
+- **Build System**: Cocos Creator Build Panel
+- **Asset Pipeline**: Cocos Creator Asset Manager + Asset Bundles
+```
 ---
 
 ## 5. Populate Technical Preferences
@@ -196,6 +212,15 @@ engine-appropriate defaults. Read the existing template first, then fill in:
 - Functions: PascalCase (e.g., `TakeDamage()`)
 - Booleans: `b` prefix (e.g., `bIsAlive`)
 - Files: Match class without prefix (e.g., `PlayerController.h`)
+
+**For Cocos Creator (TypeScript):**
+- Classes: PascalCase (e.g., `PlayerController`)
+- Interfaces: PascalCase with `I` prefix (e.g., `IDamageable`)
+- Properties/Methods: camelCase (e.g., `moveSpeed`, `takeDamage()`)
+- Private fields: `_camelCase` (e.g., `_currentHealth`)
+- Files: kebab-case matching class (e.g., `player-controller.ts`)
+- Scenes: kebab-case matching purpose (e.g., `main-menu.scene`)
+- Constants: UPPER_SNAKE_CASE (e.g., `MAX_HEALTH`)
 
 ### Input & Platform Section
 
@@ -292,6 +317,29 @@ Also populate the `## Engine Specialists` section in `technical-preferences.md` 
 | General architecture review | unreal-specialist |
 ```
 
+**For Cocos Creator:**
+```markdown
+## Engine Specialists
+- **Primary**: cocos-specialist
+- **Language/Code Specialist**: cocos-typescript-specialist (TypeScript patterns, decorators, component lifecycle)
+- **Shader Specialist**: cocos-shader-specialist (Cocos Effect .effect files, materials, particle systems)
+- **UI Specialist**: cocos-ui-specialist (UI components, multi-resolution, screen management, UI animation)
+- **Additional Specialists**: None
+- **Routing Notes**: Invoke primary for architecture and component design decisions. Invoke TypeScript specialist for code quality, type safety, and design patterns. Invoke shader specialist for rendering, materials, and visual effects. Invoke UI specialist for all interface implementation and multi-resolution adaptation.
+
+### File Extension Routing
+
+| File Extension / Type | Specialist to Spawn |
+|-----------------------|---------------------|
+| Game code (.ts files) | cocos-typescript-specialist |
+| Shader / material files (.effect, Material assets) | cocos-shader-specialist |
+| UI / screen files (UI Prefabs, Canvas scenes) | cocos-ui-specialist |
+| Scene / prefab / level files (.scene, .prefab) | cocos-specialist |
+| Native extension / plugin files | cocos-specialist |
+| General architecture review | cocos-specialist |
+```
+
+
 ### Collaborative Step
 Present the filled-in preferences to the user. For Godot, include the chosen language and note where the full naming conventions and routing tables live:
 > "Here are the default technical preferences for [engine] ([language if Godot]). The naming conventions and specialist routing are in Appendix A of this skill — I'll apply the [GDScript/C#/Both] variant. Want to customize any of these, or shall I save the defaults?"
@@ -311,6 +359,7 @@ Check whether the engine version is likely beyond the LLM's training data.
 - Godot: training data likely covers up to ~4.3
 - Unity: training data likely covers up to ~2023.x / early 6000.x
 - Unreal: training data likely covers up to ~5.3 / early 5.4
+- Cocos Creator: training data likely covers up to ~3.8.x
 
 Compare the user's chosen version against these baselines:
 
@@ -550,7 +599,7 @@ After setup is complete, output:
 Engine Setup Complete
 =====================
 Engine:          [name] [version]
-Language:        [GDScript | C# | GDScript + C# | C# | C++ + Blueprint]
+Language:        [GDScript | C# | GDScript + C# | C# | C++ + Blueprint | TypeScript]
 Knowledge Risk:  [LOW/MEDIUM/HIGH]
 Reference Docs:  [created/skipped]
 CLAUDE.md:       [updated]

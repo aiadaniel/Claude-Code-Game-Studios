@@ -1032,6 +1032,31 @@ agents:
     last_spec_result: ""
     category: engine
 
+  # Engine Specialists — Cocos Creator
+  - name: cocos-specialist
+    spec: CCGS Skill Testing Framework/agents/engine/cocos/cocos-specialist.md
+    last_spec: ""
+    last_spec_result: ""
+    category: engine
+
+  - name: cocos-typescript-specialist
+    spec: CCGS Skill Testing Framework/agents/engine/cocos/cocos-typescript-specialist.md
+    last_spec: ""
+    last_spec_result: ""
+    category: engine
+
+  - name: cocos-shader-specialist
+    spec: CCGS Skill Testing Framework/agents/engine/cocos/cocos-shader-specialist.md
+    last_spec: ""
+    last_spec_result: ""
+    category: engine
+
+  - name: cocos-ui-specialist
+    spec: CCGS Skill Testing Framework/agents/engine/cocos/cocos-ui-specialist.md
+    last_spec: ""
+    last_spec_result: ""
+    category: engine
+
   # Operations
   - name: devops-engineer
     spec: CCGS Skill Testing Framework/agents/operations/devops-engineer.md

@@ -13,8 +13,9 @@ visual quality, performance, and cross-platform compatibility.
   - `spatial_env_water.gdshader` (Godot)
   - `SG_Env_Water` (Unity Shader Graph)
   - `M_Env_Water` (Unreal Material)
+  - `sprite-dissolve.effect` (Cocos Creator Effect)
 - Use descriptive names that indicate the material purpose
-- Prefix with shader type: `spatial_`, `canvas_`, `particles_`, `post_`
+- Prefix with shader type: `spatial_`, `canvas_`, `particles_`, `post_`, `sprite_`, `ui_`
 
 ## Code Quality
 - All uniforms/parameters must have descriptive names and appropriate hints
